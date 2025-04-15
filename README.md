@@ -158,7 +158,7 @@ Este es un ejemplo básico utilizando el componente `AtomText` del paquete:
     return Scaffold(
       appBar: AppBar(title: const Text('Demo')),
       body: const Center(
-        child: AtomText.bodyMedium('¡Hola desde AtomText!'),
+        child: CustomTextButton(text: '¡Hola desde AtomText!', onTap: () {}),
       ),
     );
   }
