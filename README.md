@@ -69,7 +69,6 @@ Diseños base que estructuran pantallas sin contenido específico, listos para s
 <img src="screenshots/06.png" alt="Pages Page" width="200"/>
 
 Ejemplos de pantallas completas usando templates, organismos y contenido real, como páginas de producto o checkout.
-****
 
 ---
 
@@ -85,6 +84,24 @@ dependencies:
     git:
       url: https://github.com/Carl0395/ecommerce_system_design.git
 ```
+
+## ▶️ Ejecutar la demo (showcase)
+
+### Pasos para ejecutarla:
+1. Clona el repositorio:
+
+```bash
+  git clone https://github.com/Carl0395/ecommerce_system_design.git
+  cd ecommerce_system_design
+```
+
+2. Ejecuta la demo desde la raíz del proyecto:
+
+```bash
+cd showcase
+flutter run
+```
+
 
 ## 🧪 API
 
