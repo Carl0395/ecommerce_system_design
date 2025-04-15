@@ -3,7 +3,11 @@ import 'package:ecommerce_system_design/foundation/app_shadows.dart';
 import 'package:flutter/material.dart';
 
 class Counter extends StatelessWidget {
-  const Counter({super.key});
+  final int? value;
+  final VoidCallback? onIncrement;
+  final VoidCallback? onDecrement;
+
+  const Counter({super.key, this.value, this.onIncrement, this.onDecrement});
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +23,15 @@ class Counter extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(' + '),
-          Text(' 5 '),
-          Transform.translate(offset: Offset(0, -6), child: Text(' _ ')),
+          GestureDetector(onTap: onIncrement, child: Text(' + ')),
+          Text(' ${value ?? '5'} '),
+          GestureDetector(
+            onTap: onDecrement,
+            child: Transform.translate(
+              offset: Offset(0, -6),
+              child: Text(' _ '),
+            ),
+          ),
         ],
       ),
     );

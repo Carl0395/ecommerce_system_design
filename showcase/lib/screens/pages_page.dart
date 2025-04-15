@@ -1,6 +1,6 @@
 import 'package:ecommerce_system_design/atoms/custom_title.dart';
 import 'package:ecommerce_system_design/foundation/app_spacing.dart';
-import 'package:ecommerce_system_design/pages/main_page.dart';
+import 'package:ecommerce_system_design/pages/shopping_cart.dart';
 import 'package:flutter/material.dart';
 
 class PagesPage extends StatelessWidget {
@@ -20,12 +20,8 @@ class PagesPage extends StatelessWidget {
   Widget showPage() {
     return Column(
       children: [
-        CustomTitle(
-          text: 'Pages',
-          padding: EdgeInsets.only(top: AppSpacing.topSpacing),
-        ),
         SizedBox(height: AppSpacing.topSpacing),
-        Expanded(child: MainPage()),
+        Expanded(child: ShoppingCart()),
         SizedBox(height: AppSpacing.betweenCards),
       ],
     );
