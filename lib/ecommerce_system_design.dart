@@ -15,6 +15,7 @@ export 'molecules/header_image_box.dart';
 
 export 'organisms/cart_list.dart';
 export 'organisms/custom_app_bar.dart';
+export 'organisms/tag_horizontal_list.dart';
 
 export 'templates/list_template.dart';
 
