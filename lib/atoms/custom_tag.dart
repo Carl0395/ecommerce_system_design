@@ -9,11 +9,22 @@ class CustomTag extends StatelessWidget {
   final String? label;
   final Color? color;
   final TextStyle? textStyle;
-  const CustomTag({super.key, this.label, this.color, this.textStyle});
+  final EdgeInsets? margin;
+  final double? minWidth;
+  const CustomTag({
+    super.key,
+    this.label,
+    this.color,
+    this.textStyle,
+    this.margin,
+    this.minWidth,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: margin,
+      constraints: BoxConstraints(minWidth: minWidth ?? 0),
       padding: EdgeInsets.symmetric(
         horizontal: AppSpacing.insideHorizontalButton,
         vertical: AppSpacing.insideVerticalButton,
@@ -22,8 +33,11 @@ class CustomTag extends StatelessWidget {
         color: color ?? AppColors.secondaryButton,
         boxShadow: [AppShadows.cardShadow],
         borderRadius: BorderRadius.circular(AppRadii.md),
+        border: Border.all(width: 0.5, color: AppColors.border),
       ),
-      child: Text(label ?? 'Label', style: textStyle ?? AppTypography.label),
+      child: Center(
+        child: Text(label ?? 'Label', style: textStyle ?? AppTypography.label),
+      ),
     );
   }
 }

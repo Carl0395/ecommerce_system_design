@@ -3,6 +3,7 @@ import 'package:ecommerce_system_design/atoms/custom_title.dart';
 import 'package:ecommerce_system_design/foundation/app_spacing.dart';
 import 'package:ecommerce_system_design/organisms/cart_list.dart';
 import 'package:ecommerce_system_design/organisms/custom_app_bar.dart';
+import 'package:ecommerce_system_design/organisms/tag_horizontal_list.dart';
 import 'package:flutter/material.dart';
 
 class OrganismPage extends StatelessWidget {
@@ -16,7 +17,13 @@ class OrganismPage extends StatelessWidget {
         title: CustomTitle(text: 'Organisms', padding: EdgeInsets.zero),
       ),
       body: Column(
-        children: [showCustomAppBar(), CustomDivider(), showCartList()],
+        children: [
+          showCustomAppBar(),
+          CustomDivider(),
+          showTagsList(),
+          CustomDivider(),
+          showCartList(),
+        ],
       ),
     );
   }
@@ -30,6 +37,20 @@ class OrganismPage extends StatelessWidget {
         ),
         SizedBox(height: AppSpacing.topSpacing),
         CustomAppBar(),
+        SizedBox(height: AppSpacing.betweenCards),
+      ],
+    );
+  }
+
+  Widget showTagsList() {
+    return Column(
+      children: [
+        CustomTitle(
+          text: 'Tags',
+          padding: EdgeInsets.only(top: AppSpacing.topSpacing),
+        ),
+        SizedBox(height: AppSpacing.topSpacing),
+        TagHorizontalList(tags: ['All', 'Clothes', 'Shoes', 'Accessories']),
         SizedBox(height: AppSpacing.betweenCards),
       ],
     );
