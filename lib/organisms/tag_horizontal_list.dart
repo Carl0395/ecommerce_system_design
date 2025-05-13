@@ -1,9 +1,20 @@
 import 'package:ecommerce_system_design/ecommerce_system_design.dart';
+import 'package:ecommerce_system_design/foundation/app_colors.dart';
+import 'package:ecommerce_system_design/foundation/app_typography.dart';
 import 'package:flutter/material.dart';
 
 class TagHorizontalList extends StatelessWidget {
   final List<String>? tags;
-  const TagHorizontalList({super.key, this.tags});
+  final String? selectedTag;
+  final String? defaultTag;
+  final void Function(String tag)? onTag;
+  const TagHorizontalList({
+    super.key,
+    this.tags,
+    this.selectedTag,
+    this.defaultTag,
+    this.onTag,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +27,16 @@ class TagHorizontalList extends StatelessWidget {
         itemBuilder: (context, index) {
           final tag = tags?[index] ?? '';
           return CustomTag(
+            onTap: () => onTag?.call(tag),
             label: tag,
+            color:
+                tag == selectedTag || tag == defaultTag
+                    ? AppColors.primaryColor
+                    : null,
+            textStyle:
+                tag == selectedTag || tag == defaultTag
+                    ? AppTypography.label.copyWith(color: Colors.white)
+                    : null,
             margin: EdgeInsets.symmetric(
               horizontal: index == 0 || index == tags!.length - 1 ? 10 : 5,
               vertical: 2,

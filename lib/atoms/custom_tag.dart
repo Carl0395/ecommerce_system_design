@@ -11,6 +11,7 @@ class CustomTag extends StatelessWidget {
   final TextStyle? textStyle;
   final EdgeInsets? margin;
   final double? minWidth;
+  final VoidCallback? onTap;
   const CustomTag({
     super.key,
     this.label,
@@ -18,25 +19,32 @@ class CustomTag extends StatelessWidget {
     this.textStyle,
     this.margin,
     this.minWidth,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: margin,
-      constraints: BoxConstraints(minWidth: minWidth ?? 0),
-      padding: EdgeInsets.symmetric(
-        horizontal: AppSpacing.insideHorizontalButton,
-        vertical: AppSpacing.insideVerticalButton,
-      ),
-      decoration: BoxDecoration(
-        color: color ?? AppColors.secondaryButton,
-        boxShadow: [AppShadows.cardShadow],
-        borderRadius: BorderRadius.circular(AppRadii.md),
-        border: Border.all(width: 0.5, color: AppColors.border),
-      ),
-      child: Center(
-        child: Text(label ?? 'Label', style: textStyle ?? AppTypography.label),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        margin: margin,
+        constraints: BoxConstraints(minWidth: minWidth ?? 0),
+        padding: EdgeInsets.symmetric(
+          horizontal: AppSpacing.insideHorizontalButton,
+          vertical: AppSpacing.insideVerticalButton,
+        ),
+        decoration: BoxDecoration(
+          color: color ?? AppColors.secondaryButton,
+          boxShadow: [AppShadows.cardShadow],
+          borderRadius: BorderRadius.circular(AppRadii.md),
+          border: Border.all(width: 0.5, color: AppColors.border),
+        ),
+        child: Center(
+          child: Text(
+            label ?? 'Label',
+            style: textStyle ?? AppTypography.label,
+          ),
+        ),
       ),
     );
   }
