@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
 
-class ProductsGrid extends StatelessWidget {
-  const ProductsGrid({super.key});
+class ProductsGrid<T> extends StatelessWidget {
+  final List<T>? items;
+  final Widget Function(BuildContext context, T item)? itemBuilder;
+  const ProductsGrid({super.key, this.items, this.itemBuilder});
 
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
+      physics: NeverScrollableScrollPhysics(),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
       ),
+      itemCount: items?.length ?? 0,
       itemBuilder: (context, index) {
-        return Card();
+        final item = items![index];
+        return itemBuilder?.call(context, item);
       },
     );
   }

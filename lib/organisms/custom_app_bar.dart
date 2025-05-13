@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget {
   final String? title;
-  const CustomAppBar({super.key, this.title});
+  final VoidCallback? onProfile;
+  final VoidCallback? onCart;
+  const CustomAppBar({super.key, this.title, this.onProfile, this.onCart});
 
   @override
   Widget build(BuildContext context) {
@@ -15,11 +17,11 @@ class CustomAppBar extends StatelessWidget {
       child: Row(
         children: [
           SizedBox(width: AppSpacing.sidePadding),
-          CircleButton(icon: Icons.person),
+          CircleButton(icon: Icons.person, onTap: onProfile),
           SizedBox(width: AppSpacing.sidePadding),
           CustomTitle(text: title ?? 'AppBar', padding: EdgeInsets.zero),
           Spacer(),
-          CircleButton(),
+          CircleButton(onTap: onCart),
           SizedBox(width: AppSpacing.sidePadding),
         ],
       ),
