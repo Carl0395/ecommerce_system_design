@@ -6,8 +6,15 @@ class Counter extends StatelessWidget {
   final int? value;
   final VoidCallback? onIncrement;
   final VoidCallback? onDecrement;
+  final double? fontSize;
 
-  const Counter({super.key, this.value, this.onIncrement, this.onDecrement});
+  const Counter({
+    super.key,
+    this.value,
+    this.onIncrement,
+    this.onDecrement,
+    this.fontSize,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +30,16 @@ class Counter extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          GestureDetector(onTap: onIncrement, child: Text(' + ')),
-          Text(' ${value ?? '5'} '),
+          GestureDetector(
+            onTap: onIncrement,
+            child: Text(' + ', style: TextStyle(fontSize: fontSize ?? 14)),
+          ),
+          Text(' ${value ?? '5'} ', style: TextStyle(fontSize: fontSize ?? 14)),
           GestureDetector(
             onTap: onDecrement,
             child: Transform.translate(
               offset: Offset(0, -6),
-              child: Text(' _ '),
+              child: Text(' _ ', style: TextStyle(fontSize: fontSize ?? 14)),
             ),
           ),
         ],

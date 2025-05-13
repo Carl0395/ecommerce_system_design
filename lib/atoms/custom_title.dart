@@ -16,7 +16,7 @@ class CustomTitle extends StatelessWidget {
             top: AppSpacing.topSpacing,
             left: AppSpacing.sidePadding,
           ),
-      child: Text(text ?? 'Title', style: AppTypography.display),
+      child: Text(text ?? 'Title', maxLines: 2, style: AppTypography.display),
     );
   }
 }

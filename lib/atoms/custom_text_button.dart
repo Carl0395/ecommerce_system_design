@@ -1,5 +1,6 @@
 import 'package:ecommerce_system_design/foundation/app_radii.dart';
 import 'package:ecommerce_system_design/foundation/app_spacing.dart';
+import 'package:ecommerce_system_design/foundation/app_typography.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextButton extends StatelessWidget {
@@ -27,7 +28,7 @@ class CustomTextButton extends StatelessWidget {
             child: Center(
               child: Text(
                 text ?? 'Text Button',
-                style: theme.textTheme.labelMedium,
+                style: AppTypography.label.copyWith(color: Colors.white),
               ),
             ),
           ),
