@@ -6,15 +6,8 @@ import 'package:flutter/material.dart';
 class TagHorizontalList extends StatelessWidget {
   final List<String>? tags;
   final String? selectedTag;
-  final String? defaultTag;
   final void Function(String tag)? onTag;
-  const TagHorizontalList({
-    super.key,
-    this.tags,
-    this.selectedTag,
-    this.defaultTag,
-    this.onTag,
-  });
+  const TagHorizontalList({super.key, this.tags, this.selectedTag, this.onTag});
 
   @override
   Widget build(BuildContext context) {
@@ -29,12 +22,9 @@ class TagHorizontalList extends StatelessWidget {
           return CustomTag(
             onTap: () => onTag?.call(tag),
             label: tag,
-            color:
-                tag == selectedTag || tag == defaultTag
-                    ? AppColors.primaryColor
-                    : null,
+            color: tag == selectedTag ? AppColors.primaryColor : null,
             textStyle:
-                tag == selectedTag || tag == defaultTag
+                tag == selectedTag
                     ? AppTypography.label.copyWith(color: Colors.white)
                     : null,
             margin: EdgeInsets.symmetric(
