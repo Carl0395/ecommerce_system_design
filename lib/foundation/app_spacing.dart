@@ -14,4 +14,5 @@ class AppSpacing {
   static const internalCircleButtonSpacing = Spacing.md;
   static const outsideHorizontalSpacing = Spacing.md;
   static const dividerSpacing = Spacing.xl;
+  static const horizontalInsideInput = Spacing.md;
 }

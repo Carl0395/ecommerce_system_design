@@ -18,4 +18,17 @@ class ColorTokens {
   static const strongRed       = Color(0xFF7D2331);
   static const lightBlue       = Color(0xFFD7F0F3);
   static const strongBlue      = Color(0xFF144E5C);
+
+  static const green50         = Color(0xFFF0F6F6);
+  static const green100        = Color(0xFFD6E7DF);
+
+  static const grey50          = Color(0xFFF7F9FB);
+  static const grey100         = Color(0xFFE7E7E7);
+  static const grey300         = Color(0xFFB5B5B5);
+
+  static const black           = Color(0xFF000000);
+
+  static const red             = Colors.red;
+  static const red50           = Color(0xFFFFEEEE);
+  static const red300          = Color(0xFFF79797);
 }

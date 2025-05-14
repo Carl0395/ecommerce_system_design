@@ -47,4 +47,28 @@ class AppColors {
 
   /// Color de fondo para botones secundarios
   static const border = ColorTokens.lightGreyAccent;
+
+  static const disableColor = ColorTokens.grey300;
+
+  static const disableOption = ColorTokens.grey100;
+
+  static const inputColor = ColorTokens.green50;
+
+  static const placeholder = ColorTokens.grey300;
+
+  static const placeholderError = ColorTokens.red300;
+
+  static const borderGreen = ColorTokens.green;
+
+  static const borderGrey = ColorTokens.grey300;
+
+  static const borderRed = ColorTokens.red;
+
+  static const inputError = ColorTokens.red50;
+
+  static const textError = ColorTokens.red;
+
+  static const warning = ColorTokens.yellow;
+
+  static const error = ColorTokens.red;
 }
