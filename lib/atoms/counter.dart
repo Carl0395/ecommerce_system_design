@@ -2,7 +2,7 @@ import 'package:ecommerce_system_design/foundation/app_colors.dart';
 import 'package:ecommerce_system_design/foundation/app_shadows.dart';
 import 'package:flutter/material.dart';
 
-class Counter extends StatelessWidget {
+class Counter extends StatefulWidget {
   final int? value;
   final VoidCallback? onIncrement;
   final VoidCallback? onDecrement;
@@ -15,6 +15,19 @@ class Counter extends StatelessWidget {
     this.onDecrement,
     this.fontSize,
   });
+
+  @override
+  State<Counter> createState() => _CounterState();
+}
+
+class _CounterState extends State<Counter> {
+  late int value = widget.value ?? 5;
+
+  @override
+  void didUpdateWidget(covariant Counter oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    value = widget.value ?? 5;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,15 +44,28 @@ class Counter extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           GestureDetector(
-            onTap: onIncrement,
-            child: Text(' + ', style: TextStyle(fontSize: fontSize ?? 14)),
+            onTap: () {
+              setState(() => value++);
+              widget.onIncrement?.call();
+            },
+            child: Text(
+              ' + ',
+              style: TextStyle(fontSize: widget.fontSize ?? 14),
+            ),
           ),
-          Text(' ${value ?? '5'} ', style: TextStyle(fontSize: fontSize ?? 14)),
+          Text(' $value ', style: TextStyle(fontSize: widget.fontSize ?? 14)),
           GestureDetector(
-            onTap: onDecrement,
+            onTap: () {
+              if (value == 0) return;
+              setState(() => value--);
+              widget.onDecrement?.call();
+            },
             child: Transform.translate(
               offset: Offset(0, -6),
-              child: Text(' _ ', style: TextStyle(fontSize: fontSize ?? 14)),
+              child: Text(
+                ' _ ',
+                style: TextStyle(fontSize: widget.fontSize ?? 14),
+              ),
             ),
           ),
         ],
