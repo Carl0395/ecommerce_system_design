@@ -25,7 +25,8 @@ class CartItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: padding,
-      height: 100,
+      height: 120,
+      // constraints: BoxConstraints(minHeight: 100),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

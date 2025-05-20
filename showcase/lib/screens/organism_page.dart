@@ -71,7 +71,11 @@ class OrganismPage extends StatelessWidget {
             padding: EdgeInsets.only(top: AppSpacing.topSpacing),
           ),
           SizedBox(height: AppSpacing.topSpacing),
-          Expanded(child: CartList()),
+          Expanded(
+            child: CartList(
+              data: ['item 1', 'item 2', 'item 3', 'item 4', 'item 5'],
+            ),
+          ),
           SizedBox(height: AppSpacing.betweenCards),
         ],
       ),
@@ -79,19 +83,25 @@ class OrganismPage extends StatelessWidget {
   }
 
   Widget showProductsGrid() {
-    return SizedBox(
-      height: 400,
-      child: Column(
-        children: [
-          CustomTitle(
-            text: 'Products',
-            padding: EdgeInsets.only(top: AppSpacing.topSpacing),
-          ),
-          SizedBox(height: AppSpacing.topSpacing),
-          Expanded(child: ProductsGrid()),
-          SizedBox(height: AppSpacing.betweenCards),
-        ],
-      ),
+    return Column(
+      children: [
+        CustomTitle(
+          text: 'Products',
+          padding: EdgeInsets.only(top: AppSpacing.topSpacing),
+        ),
+        SizedBox(height: AppSpacing.topSpacing),
+        ProductsGrid(
+          items: [
+            'product 1',
+            'product 2',
+            'product 3',
+            'product 4',
+            'product 5',
+          ],
+          itemBuilder: (context, item) => Center(child: Text(item)),
+        ),
+        SizedBox(height: AppSpacing.betweenCards),
+      ],
     );
   }
 }
