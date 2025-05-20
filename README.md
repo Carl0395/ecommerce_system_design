@@ -165,3 +165,28 @@ Este es un ejemplo básico utilizando el componente `AtomText` del paquete:
 ```
 
 🔍 Para explorar una implementación completa del sistema de diseño, visita la carpeta [showcase].
+
+
+
+# 🧪 Pruebas de Widget en `ecommerce_system_design`
+
+Este paquete incluye una suite de pruebas de widgets para garantizar la fiabilidad y robustez de los componentes. A continuación, se detallan las pruebas implementadas y cómo ejecutarlas.
+
+## 📁 Estructura de Pruebas
+
+Las pruebas se encuentran en el directorio `test/` y cubren los siguientes módulos:
+
+- **`atoms`**: Pruebas para los Widgets basicos del sistema
+- **`molecules`**: Pruebas para las moleculas del sistema
+- **`organism`**: Pruebas para los organismos del sistema
+
+## 🧰 Herramientas Utilizadas
+
+- **Framework de Pruebas**: [flutter_test](https://pub.dev/packages/flutter_test)
+
+## 🚀 Ejecución de Pruebas
+
+Para ejecutar todas las pruebas unitarias, utiliza el siguiente comando en la raíz del proyecto:
+
+```bash
+flutter test
