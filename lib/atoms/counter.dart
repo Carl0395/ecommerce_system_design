@@ -32,7 +32,7 @@ class _CounterState extends State<Counter> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: BoxConstraints(minHeight: 70),
+      height: 70,
       padding: EdgeInsets.symmetric(horizontal: 4, vertical: 2),
       decoration: BoxDecoration(
         color: AppColors.secondaryButton,
