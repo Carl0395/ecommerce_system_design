@@ -7,7 +7,14 @@ class CustomTextButton extends StatelessWidget {
   final void Function()? onTap;
   final String? text;
   final Color? color;
-  const CustomTextButton({super.key, this.onTap, this.text, this.color});
+  final Color? colorButton;
+  const CustomTextButton({
+    super.key,
+    this.onTap,
+    this.text,
+    this.color,
+    this.colorButton,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +29,7 @@ class CustomTextButton extends StatelessWidget {
           splashColor: theme.colorScheme.tertiary,
           child: Container(
             height: 44,
+            color: colorButton,
             padding: EdgeInsets.symmetric(
               horizontal: AppSpacing.insideHorizontalButton,
               vertical: AppSpacing.insideVerticalButton,

@@ -68,7 +68,7 @@ class AdWidget extends StatelessWidget {
                   CustomTextButton(
                     text: textButton ?? '¡Shop now!',
                     onTap: onShop,
-                    color: shopButtonColor,
+                    colorButton: shopButtonColor,
                   ),
               ],
             ),
