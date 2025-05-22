@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 class CustomTextButton extends StatelessWidget {
   final void Function()? onTap;
   final String? text;
-  const CustomTextButton({super.key, this.onTap, this.text});
+  final Color? color;
+  const CustomTextButton({super.key, this.onTap, this.text, this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,9 @@ class CustomTextButton extends StatelessWidget {
             child: Center(
               child: Text(
                 text ?? 'Text Button',
-                style: AppTypography.label.copyWith(color: Colors.white),
+                style: AppTypography.label.copyWith(
+                  color: color ?? Colors.white,
+                ),
               ),
             ),
           ),

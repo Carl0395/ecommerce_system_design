@@ -19,6 +19,7 @@ class Input extends StatelessWidget {
   final bool obscureText;
   final String? error;
   final FocusNode? focusNode;
+  final Color? borderColor;
   final void Function(PointerDownEvent event)? onTapOutside;
 
   const Input({
@@ -37,6 +38,7 @@ class Input extends StatelessWidget {
     this.error,
     this.focusNode,
     this.onTapOutside,
+    this.borderColor,
   });
 
   @override
@@ -65,7 +67,7 @@ class Input extends StatelessWidget {
                   color:
                       error != null
                           ? AppColors.borderRed
-                          : AppColors.borderGreen,
+                          : borderColor ?? AppColors.borderGreen,
                 ),
               ),
               child: TextField(

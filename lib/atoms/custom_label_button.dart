@@ -5,7 +5,15 @@ import 'package:flutter/material.dart';
 class CustomLabelButton extends StatelessWidget {
   final String? label;
   final VoidCallback? onTap;
-  const CustomLabelButton({super.key, this.label, this.onTap});
+  final Color? color;
+  final Color? colorText;
+  const CustomLabelButton({
+    super.key,
+    this.label,
+    this.onTap,
+    this.color,
+    this.colorText,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +25,9 @@ class CustomLabelButton extends StatelessWidget {
         children: [
           Text(
             label ?? 'Insert text',
-            style: AppTypography.button.copyWith(color: AppColors.primaryColor),
+            style: AppTypography.button.copyWith(
+              color: colorText ?? AppColors.primaryColor,
+            ),
           ),
           Positioned(
             bottom: -2,
@@ -26,7 +36,7 @@ class CustomLabelButton extends StatelessWidget {
             child: Container(
               height: 1,
               width: double.infinity,
-              color: AppColors.primaryColor,
+              color: color ?? AppColors.primaryColor,
             ),
           ),
         ],

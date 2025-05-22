@@ -8,12 +8,22 @@ class AdWidget extends StatelessWidget {
   final String? imageUrl;
   final String? price;
   final VoidCallback? onShop;
+  final Color? shopButtonColor;
+  final Color? shopTextButtonColor;
+  final Color? labelColor;
+  final Color? priceColor;
+  final String? textButton;
   const AdWidget({
     super.key,
     required this.imageUrl,
     this.price,
     this.label,
     this.onShop,
+    this.shopButtonColor,
+    this.labelColor,
+    this.priceColor,
+    this.shopTextButtonColor,
+    this.textButton,
   });
 
   @override
@@ -43,15 +53,22 @@ class AdWidget extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: AppTypography.label.copyWith(
                       fontWeight: FontWeight.bold,
-                      color: AppColors.textLabel,
+                      color: labelColor ?? AppColors.textLabel,
                     ),
                   ),
                 ),
                 if (price != null)
-                  CustomTitle(text: '\$$price', padding: EdgeInsets.zero),
+                  CustomTitle(
+                    text: '\$$price',
+                    padding: EdgeInsets.zero,
+                    color: priceColor,
+                  ),
                 SizedBox(height: 10),
                 if (price != null)
-                  CustomTextButton(text: '¡Shop now!', onTap: onShop),
+                  CustomTextButton(
+                    text: textButton ?? '¡Shop now!',
+                    onTap: onShop,
+                  ),
               ],
             ),
           ),

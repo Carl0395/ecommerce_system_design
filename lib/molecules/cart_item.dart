@@ -11,6 +11,7 @@ class CartItem extends StatelessWidget {
   final String? price;
   final int? count;
   final EdgeInsets? padding;
+  final Color? titleColor;
   const CartItem({
     super.key,
     this.padding,
@@ -19,6 +20,7 @@ class CartItem extends StatelessWidget {
     this.title,
     this.price,
     this.count,
+    this.titleColor,
   });
 
   @override
@@ -47,7 +49,7 @@ class CartItem extends StatelessWidget {
               children: [
                 Text(
                   title ?? 'Lorem ipsum dolor',
-                  style: AppTypography.subTitle,
+                  style: AppTypography.subTitle.copyWith(color: titleColor),
                 ),
                 Text('ID: ${id ?? '1'}', style: AppTypography.labelSmall),
                 Spacer(),

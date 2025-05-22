@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 class CustomTitle extends StatelessWidget {
   final String? text;
   final EdgeInsets? padding;
-  const CustomTitle({super.key, this.text, this.padding});
+  final Color? color;
+  const CustomTitle({super.key, this.text, this.padding, this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,11 @@ class CustomTitle extends StatelessWidget {
             top: AppSpacing.topSpacing,
             left: AppSpacing.sidePadding,
           ),
-      child: Text(text ?? 'Title', maxLines: 2, style: AppTypography.display),
+      child: Text(
+        text ?? 'Title',
+        maxLines: 2,
+        style: AppTypography.display.copyWith(color: color),
+      ),
     );
   }
 }

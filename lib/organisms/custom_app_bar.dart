@@ -7,7 +7,18 @@ class CustomAppBar extends StatelessWidget {
   final String? title;
   final VoidCallback? onProfile;
   final VoidCallback? onCart;
-  const CustomAppBar({super.key, this.title, this.onProfile, this.onCart});
+  final Color? profileButtonColor;
+  final Color? titleColor;
+  final Color? cartButtonColor;
+  const CustomAppBar({
+    super.key,
+    this.title,
+    this.onProfile,
+    this.onCart,
+    this.profileButtonColor,
+    this.titleColor,
+    this.cartButtonColor,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,11 +28,19 @@ class CustomAppBar extends StatelessWidget {
       child: Row(
         children: [
           SizedBox(width: AppSpacing.sidePadding),
-          CircleButton(icon: Icons.person, onTap: onProfile),
+          CircleButton(
+            icon: Icons.person,
+            onTap: onProfile,
+            color: profileButtonColor,
+          ),
           SizedBox(width: AppSpacing.sidePadding),
-          CustomTitle(text: title ?? 'AppBar', padding: EdgeInsets.zero),
+          CustomTitle(
+            text: title ?? 'AppBar',
+            padding: EdgeInsets.zero,
+            color: titleColor,
+          ),
           Spacer(),
-          CircleButton(onTap: onCart),
+          CircleButton(onTap: onCart, color: cartButtonColor),
           SizedBox(width: AppSpacing.sidePadding),
         ],
       ),
