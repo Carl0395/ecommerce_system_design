@@ -31,7 +31,7 @@ class CustomAppBar extends StatelessWidget {
           CircleButton(
             icon: Icons.person,
             onTap: onProfile,
-            color: profileButtonColor,
+            iconColor: profileButtonColor,
           ),
           SizedBox(width: AppSpacing.sidePadding),
           CustomTitle(
@@ -40,7 +40,7 @@ class CustomAppBar extends StatelessWidget {
             color: titleColor,
           ),
           Spacer(),
-          CircleButton(onTap: onCart, color: cartButtonColor),
+          CircleButton(onTap: onCart, iconColor: cartButtonColor),
           SizedBox(width: AppSpacing.sidePadding),
         ],
       ),
