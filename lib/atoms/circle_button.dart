@@ -7,6 +7,8 @@ class CircleButton extends StatelessWidget {
   final VoidCallback? onTap;
   final Color? color;
   final Color? iconColor;
+  final String? semanticLabel;
+  final String? semanticHint;
   const CircleButton({
     super.key,
     this.size,
@@ -14,22 +16,29 @@ class CircleButton extends StatelessWidget {
     this.onTap,
     this.color,
     this.iconColor,
+    this.semanticLabel,
+    this.semanticHint,
   });
 
   @override
   Widget build(BuildContext context) {
     final sizeButton = size ?? 50;
     final iconButton = icon ?? Icons.shopping_cart_outlined;
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        width: sizeButton,
-        height: sizeButton,
-        decoration: BoxDecoration(
-          color: color ?? AppColors.secondaryButton,
-          borderRadius: BorderRadius.circular(sizeButton / 2),
+    return Semantics(
+      button: true,
+      label: semanticLabel,
+      hint: semanticHint,
+      child: GestureDetector(
+        onTap: onTap,
+        child: Container(
+          width: sizeButton,
+          height: sizeButton,
+          decoration: BoxDecoration(
+            color: color ?? AppColors.secondaryButton,
+            borderRadius: BorderRadius.circular(sizeButton / 2),
+          ),
+          child: Icon(iconButton, color: iconColor ?? AppColors.tertiaryColor),
         ),
-        child: Icon(iconButton, color: iconColor ?? AppColors.tertiaryColor),
       ),
     );
   }

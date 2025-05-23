@@ -10,6 +10,10 @@ class CustomAppBar extends StatelessWidget {
   final Color? profileButtonColor;
   final Color? titleColor;
   final Color? cartButtonColor;
+  final String? semanticProfileLabel;
+  final String? semanticProfileHint;
+  final String? semanticCartLabel;
+  final String? semanticCartHint;
   const CustomAppBar({
     super.key,
     this.title,
@@ -18,6 +22,10 @@ class CustomAppBar extends StatelessWidget {
     this.profileButtonColor,
     this.titleColor,
     this.cartButtonColor,
+    this.semanticProfileLabel,
+    this.semanticProfileHint,
+    this.semanticCartLabel,
+    this.semanticCartHint,
   });
 
   @override
@@ -32,6 +40,8 @@ class CustomAppBar extends StatelessWidget {
             icon: Icons.person,
             onTap: onProfile,
             iconColor: profileButtonColor,
+            semanticLabel: semanticProfileLabel,
+            semanticHint: semanticProfileHint,
           ),
           SizedBox(width: AppSpacing.sidePadding),
           CustomTitle(
@@ -40,7 +50,12 @@ class CustomAppBar extends StatelessWidget {
             color: titleColor,
           ),
           Spacer(),
-          CircleButton(onTap: onCart, iconColor: cartButtonColor),
+          CircleButton(
+            onTap: onCart,
+            iconColor: cartButtonColor,
+            semanticLabel: semanticCartLabel,
+            semanticHint: semanticCartHint,
+          ),
           SizedBox(width: AppSpacing.sidePadding),
         ],
       ),
